@@ -114,9 +114,24 @@ Output:
 ]*/
 
 export function makeArrayWithIsHungry(arr) {
-    return [];
+    return arr.map(item => {
+        const copy = { ...item };
+        // do stuff here
+
+        //this works if you make let copy
+        // copy = {
+        //     name: item.name,
+        //     type: item.type,
+        //     isHungry: true
+        // };
+
+        copy.isHungry = true; // this seems like cheating
+
+        return copy;
+    });
 }
 
+//7
 /*
 Output:
 
@@ -128,10 +143,13 @@ Output:
 ]*/
 
 export function makeShoutingArray(arr) {
-    return [];
+    return arr.map(eachPet => ({
+        name: eachPet.name.toUpperCase(),
+        type: eachPet.type
+    }));
 }
 
-
+//8
 /*
 
 Output:
@@ -139,9 +157,11 @@ Output:
 */
 
 export function makeStringArray(arr) {
-    return [];
+    const string = arr.map(eachPet => eachPet.name + eachPet.type);
+    // console.log(string);
+    return string;
 }
-
+//9
 /*
 findByName('jumpy', petsArray)
 
@@ -152,9 +172,11 @@ OUTPUT:
 */
 
 export function findByName(name, arr) {
-    return {};
+    //loops through and only returns when supplied name is same as name property, returns an array of one object so [0] is to return that first object
+    return arr.filter(eachPet => name === eachPet.name)[0];
 }
 
+//10
 /*
 Output:
 
@@ -178,7 +200,10 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    return arr.map(eachPet => [
+        ['name', eachPet.name],
+        ['type', eachPet.type]
+    ]);
 }
 
 ////////////////////////////////////////////////////////
