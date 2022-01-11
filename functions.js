@@ -17,8 +17,20 @@ OUTPUT:
 
 ]*/
 
-export function getDogs(arr) {
-    return [];
+// 1
+export function getDogs(petsArr) {
+    //VERBOSE
+    // return petsArr.filter(eachPet => {
+    //     if(eachPet.type === 'dog') return true;
+    // });
+
+    //GOLFY - get rid of return true b/c yr conditional returns a boolean
+    // return petsArr.filter(eachPet => {
+    //     return eachPet.type === 'dog';
+    // });
+
+    //SUPER GOLFY - get rid of {} and return because without {} => implicitly returns
+    return petsArr.filter(eachPet => eachPet.type === 'dog');
 }
 
 /*
@@ -26,11 +38,20 @@ OUTPUT:
 ['spot', 'rover']
 */
 
+//2
 export function getNamesOfDogs(arr) {
-    return [];
+    // const justDogs = arr.filter(eachPet => eachPet.type === 'dog');
+    // const dogNames2 = justDogs.map(eachDog => eachDog.name);
+    // return dogNames2;
+
+    // CHAINING ARRAY METHODS
+    const dogNames = arr
+        .filter(eachPet => eachPet.type === 'dog')
+        .map(eachPet => eachPet.name);
+    return dogNames;
 }
 
-
+// 3
 /*
 Output:
 
@@ -38,9 +59,10 @@ Output:
 */
 
 export function makeArrayOfNames(arr) {
-    return [];
+    return arr.map(eachPet => eachPet.name);
 }
 
+//4
 /*
 Output:
 
@@ -48,9 +70,10 @@ Output:
 */
 
 export function makeReversedArrayOfTypes(arr) {
-    return [];
+    return arr.map(eachPet => eachPet.type).reverse();
 }
 
+//5
 /*
 Output:
 
@@ -63,9 +86,23 @@ Output:
 */
 
 export function makeSpanishLanguageArray(arr) {
-    return [];
+    // const spanishArr = arr.map(eachPet => {
+    //     return {
+    //         nombre: eachPet.name,
+    //         tipo: eachPet.type
+    //     };
+    // });
+
+    // return spanishArr;
+
+    // SUPER GOLFY - can get rid of outside {} and return but have to wrap the object {} in ()
+    return arr.map(eachPet => ({
+        nombre: eachPet.name,
+        tipo: eachPet.type
+    }));
 }
 
+//6
 /*
 Output:
 
