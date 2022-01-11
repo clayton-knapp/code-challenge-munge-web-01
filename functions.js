@@ -223,6 +223,7 @@ For the next set of functions, assume the following input:
 
 /*
 
+//11
 Output: 
 [
     { type: 'car', make: 'ford', model: 'taurus', age: 2 },
@@ -232,9 +233,10 @@ Output:
 */
 
 export function getCars(arr) {
-    return [];
+    return arr.filter(eachVehicle => eachVehicle.type === 'car');
 }
 
+//12
 /*
 Output:
  [
@@ -245,7 +247,16 @@ Output:
 */
 
 export function getChevyCars(arr) {
-    return [];
+    // const chevyCars = arr.filter(eachVehicle => {
+    //     if(eachVehicle.make === 'chevy' && eachVehicle.type === 'car') 
+    //         return true;
+    // });
+
+    // return chevyCars;
+
+    //GOLFY-ER
+    return arr.filter(eachVehicle => (eachVehicle.make === 'chevy' && eachVehicle.type === 'car'));
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

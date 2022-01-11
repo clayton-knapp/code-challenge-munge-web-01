@@ -142,7 +142,7 @@ test('should return a proper array of arrays', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-
+//11
 const vehicles = [
     { type: 'car', make: 'ford', model: 'taurus', age: 2 },
     { type: 'car', make: 'chevy', model: 'malibu', age: 3 },
@@ -152,7 +152,7 @@ const vehicles = [
     { type: 'car', make: 'chevy', model: 'camero', age: 1 },
 ];
 
-skip('should return an array of cars', (expect) => {
+test('should return an array of cars', (expect) => {
     const expected = [
         { type: 'car', make: 'ford', model: 'taurus', age: 2 },
         { type: 'car', make: 'chevy', model: 'malibu', age: 3 },
@@ -164,8 +164,8 @@ skip('should return an array of cars', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-
-skip('should return an array of chevy cars', (expect) => {
+//12
+test('should return an array of chevy cars', (expect) => {
     const expected = [
         { type: 'car', make: 'chevy', model: 'malibu', age: 3 },
         { type: 'car', make: 'chevy', model: 'camero', age: 1 }
