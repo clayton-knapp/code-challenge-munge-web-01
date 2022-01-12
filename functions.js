@@ -17,8 +17,20 @@ OUTPUT:
 
 ]*/
 
-export function getDogs(arr) {
-    return [];
+// 1
+export function getDogs(petsArr) {
+    //VERBOSE
+    // return petsArr.filter(eachPet => {
+    //     if(eachPet.type === 'dog') return true;
+    // });
+
+    //GOLFY - get rid of return true b/c yr conditional returns a boolean
+    // return petsArr.filter(eachPet => {
+    //     return eachPet.type === 'dog';
+    // });
+
+    //SUPER GOLFY - get rid of {} and return because without {} => implicitly returns
+    return petsArr.filter(eachPet => eachPet.type === 'dog');
 }
 
 /*
@@ -26,11 +38,20 @@ OUTPUT:
 ['spot', 'rover']
 */
 
+//2
 export function getNamesOfDogs(arr) {
-    return [];
+    // const justDogs = arr.filter(eachPet => eachPet.type === 'dog');
+    // const dogNames2 = justDogs.map(eachDog => eachDog.name);
+    // return dogNames2;
+
+    // CHAINING ARRAY METHODS
+    const dogNames = arr
+        .filter(eachPet => eachPet.type === 'dog')
+        .map(eachPet => eachPet.name);
+    return dogNames;
 }
 
-
+// 3
 /*
 Output:
 
@@ -38,9 +59,10 @@ Output:
 */
 
 export function makeArrayOfNames(arr) {
-    return [];
+    return arr.map(eachPet => eachPet.name);
 }
 
+//4
 /*
 Output:
 
@@ -48,9 +70,10 @@ Output:
 */
 
 export function makeReversedArrayOfTypes(arr) {
-    return [];
+    return arr.map(eachPet => eachPet.type).reverse();
 }
 
+//5
 /*
 Output:
 
@@ -63,9 +86,23 @@ Output:
 */
 
 export function makeSpanishLanguageArray(arr) {
-    return [];
+    // const spanishArr = arr.map(eachPet => {
+    //     return {
+    //         nombre: eachPet.name,
+    //         tipo: eachPet.type
+    //     };
+    // });
+
+    // return spanishArr;
+
+    // SUPER GOLFY - can get rid of outside {} and return but have to wrap the object {} in ()
+    return arr.map(eachPet => ({
+        nombre: eachPet.name,
+        tipo: eachPet.type
+    }));
 }
 
+//6
 /*
 Output:
 
@@ -77,9 +114,24 @@ Output:
 ]*/
 
 export function makeArrayWithIsHungry(arr) {
-    return [];
+    return arr.map(item => {
+        const copy = { ...item };
+        // do stuff here
+
+        //this works if you make let copy
+        // copy = {
+        //     name: item.name,
+        //     type: item.type,
+        //     isHungry: true
+        // };
+
+        copy.isHungry = true; // this seems like cheating
+
+        return copy;
+    });
 }
 
+//7
 /*
 Output:
 
@@ -91,10 +143,13 @@ Output:
 ]*/
 
 export function makeShoutingArray(arr) {
-    return [];
+    return arr.map(eachPet => ({
+        name: eachPet.name.toUpperCase(),
+        type: eachPet.type
+    }));
 }
 
-
+//8
 /*
 
 Output:
@@ -102,9 +157,11 @@ Output:
 */
 
 export function makeStringArray(arr) {
-    return [];
+    const string = arr.map(eachPet => eachPet.name + eachPet.type);
+    // console.log(string);
+    return string;
 }
-
+//9
 /*
 findByName('jumpy', petsArray)
 
@@ -115,9 +172,11 @@ OUTPUT:
 */
 
 export function findByName(name, arr) {
-    return {};
+    //loops through and only returns when supplied name is same as name property, returns an array of one object so [0] is to return that first object
+    return arr.filter(eachPet => name === eachPet.name)[0];
 }
 
+//10
 /*
 Output:
 
@@ -141,7 +200,10 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    return arr.map(eachPet => [
+        ['name', eachPet.name],
+        ['type', eachPet.type]
+    ]);
 }
 
 ////////////////////////////////////////////////////////
@@ -161,6 +223,7 @@ For the next set of functions, assume the following input:
 
 /*
 
+//11
 Output: 
 [
     { type: 'car', make: 'ford', model: 'taurus', age: 2 },
@@ -170,9 +233,10 @@ Output:
 */
 
 export function getCars(arr) {
-    return [];
+    return arr.filter(eachVehicle => eachVehicle.type === 'car');
 }
 
+//12
 /*
 Output:
  [
@@ -183,7 +247,16 @@ Output:
 */
 
 export function getChevyCars(arr) {
-    return [];
+    // const chevyCars = arr.filter(eachVehicle => {
+    //     if(eachVehicle.make === 'chevy' && eachVehicle.type === 'car') 
+    //         return true;
+    // });
+
+    // return chevyCars;
+
+    //GOLFY-ER
+    return arr.filter(eachVehicle => (eachVehicle.make === 'chevy' && eachVehicle.type === 'car'));
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -194,15 +267,21 @@ export function getChevyCars(arr) {
 
 // Stretch Goals!
 
+//13
 /*
 Output:
 'taurusmalibubroncosilveradoexpresscamero'
  */
 
 export function makeModelsStringWithReduce(arr) {
-    return '';
+    return arr.reduce((acc, cur) => {
+        acc = acc + cur.model;
+
+        return acc;
+    }, '');
 }
 
+//14
 /*
 (add all ages)
 
@@ -210,9 +289,18 @@ Output: 14
  */
 
 export function getSumOfAges(arr) {
-    return 0;
+    // const sum = arr.reduce((acc, cur) => {
+    //     acc = acc + cur.age;
+    //     return acc;
+    // }, 0);
+
+    // return sum;
+
+    //GOLFIER
+    return arr.reduce((acc, cur) => acc + cur.age, 0);
 }
 
+//15
 /*
 
 Output: 
@@ -224,10 +312,58 @@ Output:
  */
 
 export function makeCountObject(arr) {
-    return {};
+    //DOING WITH FOR LOOP
+    // let carCount = 0;
+    // let truckCount = 0;
+    // let vanCount = 0;
+
+    // for(let eachVehicle of arr) {
+    //     if(eachVehicle.type === 'car') {
+    //         carCount++;
+    //     } else if(eachVehicle.type === 'truck') {
+    //         truckCount++;
+    //     } else if(eachVehicle.type === 'van') {
+    //         vanCount++;
+    //     }
+    // }
+    // return {
+    //     car: carCount,
+    //     truck: truckCount,
+    //     van: vanCount
+    // };
+
+    // WITH REDUCE
+
+    const carCount = arr.reduce((acc, cur) => {
+        if(cur.type === 'car') {
+            acc = acc + 1;
+        }
+        return acc;
+    }, 0);
+
+    const truckCount = arr.reduce((acc, cur) => {
+        if(cur.type === 'truck') {
+            acc = acc + 1;
+        }
+        return acc;
+    }, 0);
+
+    const vanCount = arr.reduce((acc, cur) => {
+        if(cur.type === 'van') {
+            acc = acc + 1;
+        }
+        return acc;
+    }, 0);
+
+    return {
+        car: carCount,
+        truck: truckCount,
+        van: vanCount
+    };
+
 }
 
-
+//16
 /*
 
 Output: 
@@ -237,5 +373,14 @@ Output:
 
 
 export function makeKeysString(arr) {
-    return '';
+    // const arrayOfKeys = Object.keys(arr[0]);
+    // const string = arrayOfKeys.reduce((acc, cur) => acc + cur, '');
+
+    // console.log(string);
+    // return string;
+
+    //GOLFIER
+    return Object.keys(arr[0]).reduce((acc, cur) => acc + cur, '');
+
+
 }

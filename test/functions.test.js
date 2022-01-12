@@ -32,7 +32,7 @@ const otherPets = [
     { name: 'fluff', type: 'squirrel' },
 ];
 
-
+// 1
 test('should return dogs', (expect) => {
     const expected = [
         { name: 'scooter', type: 'dog' },
@@ -44,7 +44,8 @@ test('should return dogs', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should return dogs names', (expect) => {
+//2
+test('should return dogs names', (expect) => {
     const expected = ['scooter', 'sassy'];
     
     const actual = getNamesOfDogs(otherPets);
@@ -52,21 +53,24 @@ skip('should return dogs names', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should make an array of names', (expect) => {
+//3
+test('should make an array of names', (expect) => {
     const expected = ['coco', 'jumper'];
     const actual = makeArrayOfNames(pets);
 
     expect.deepEqual(actual, expected);
 });
 
-skip('should make a reverse array of type', (expect) => {
+//4
+test('should make a reverse array of type', (expect) => {
     const expected = ['frog', 'cat'];
     const actual = makeReversedArrayOfTypes(pets);
 
     expect.deepEqual(actual, expected);
 });
 
-skip('should make a spanish array of pet objects', (expect) => {
+//5
+test('should make a spanish array of pet objects', (expect) => {
     const expected = [
         {
             nombre: 'coco',
@@ -82,7 +86,8 @@ skip('should make a spanish array of pet objects', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should return all objects with an added isHungry property equal to true', (expect) => { 
+//6
+test('should return all objects with an added isHungry property equal to true', (expect) => { 
     const expected = [
         { name: 'scooter', isHungry: true, type: 'dog' },
         { name: 'sassy', isHungry: true, type: 'dog' },
@@ -94,7 +99,8 @@ skip('should return all objects with an added isHungry property equal to true', 
     expect.deepEqual(actual, expected);
 });
 
-skip('should return a shouting array', (expect) => {
+//7
+test('should return a shouting array', (expect) => {
     const expected = [
         { name: 'SCOOTER', type: 'dog' },
         { name: 'SASSY', type: 'dog' },
@@ -106,21 +112,24 @@ skip('should return a shouting array', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should return a proper array of strings', (expect) => { 
+//8
+test('should return a proper array of strings', (expect) => { 
     const expected = ['scooterdog', 'sassydog', 'legzofrog', 'fluffsquirrel'];
     const actual = makeStringArray(otherPets);
 
     expect.deepEqual(actual, expected);
 });
 
-skip('should return the animal with the matching name', (expect) => {
+//9
+test('should return the animal with the matching name', (expect) => {
     const expected = { name: 'sassy', type: 'dog' };
     const actual = findByName('sassy', otherPets);
 
     expect.deepEqual(actual, expected);
 });
 
-skip('should return a proper array of arrays', (expect) => {
+//10
+test('should return a proper array of arrays', (expect) => {
     const expected = [
         [['name', 'scooter'], ['type', 'dog']], 
         [['name', 'sassy'], ['type', 'dog']], 
@@ -133,7 +142,7 @@ skip('should return a proper array of arrays', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-
+//11
 const vehicles = [
     { type: 'car', make: 'ford', model: 'taurus', age: 2 },
     { type: 'car', make: 'chevy', model: 'malibu', age: 3 },
@@ -143,7 +152,7 @@ const vehicles = [
     { type: 'car', make: 'chevy', model: 'camero', age: 1 },
 ];
 
-skip('should return an array of cars', (expect) => {
+test('should return an array of cars', (expect) => {
     const expected = [
         { type: 'car', make: 'ford', model: 'taurus', age: 2 },
         { type: 'car', make: 'chevy', model: 'malibu', age: 3 },
@@ -155,8 +164,8 @@ skip('should return an array of cars', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-
-skip('should return an array of chevy cars', (expect) => {
+//12
+test('should return an array of chevy cars', (expect) => {
     const expected = [
         { type: 'car', make: 'chevy', model: 'malibu', age: 3 },
         { type: 'car', make: 'chevy', model: 'camero', age: 1 }
@@ -167,8 +176,8 @@ skip('should return an array of chevy cars', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-
-skip('should return an models string', (expect) => {
+//13
+test('should return an models string', (expect) => {
     const expected = 'taurusmalibubroncosilveradoexpresscamero';
 
     const actual = makeModelsStringWithReduce(vehicles);
@@ -177,8 +186,8 @@ skip('should return an models string', (expect) => {
 });
 
 
-
-skip('should return sum of ages', (expect) => {
+//14
+test('should return sum of ages', (expect) => {
     const expected = 14;
 
     const actual = getSumOfAges(vehicles);
@@ -186,8 +195,8 @@ skip('should return sum of ages', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-
-skip('should return an count object', (expect) => {
+//15
+test('should return an count object', (expect) => {
     const expected = {
         car: 3,
         truck: 2,
@@ -199,7 +208,8 @@ skip('should return an count object', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should return an weird string of keys', (expect) => {
+//16
+test('should return a weird string of keys', (expect) => {
 
 
     const actual = makeKeysString(vehicles);
