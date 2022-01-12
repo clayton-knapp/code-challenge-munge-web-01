@@ -176,8 +176,8 @@ test('should return an array of chevy cars', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-
-skip('should return an models string', (expect) => {
+//13
+test('should return an models string', (expect) => {
     const expected = 'taurusmalibubroncosilveradoexpresscamero';
 
     const actual = makeModelsStringWithReduce(vehicles);
@@ -186,8 +186,8 @@ skip('should return an models string', (expect) => {
 });
 
 
-
-skip('should return sum of ages', (expect) => {
+//14
+test('should return sum of ages', (expect) => {
     const expected = 14;
 
     const actual = getSumOfAges(vehicles);
@@ -195,8 +195,8 @@ skip('should return sum of ages', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-
-skip('should return an count object', (expect) => {
+//15
+test('should return an count object', (expect) => {
     const expected = {
         car: 3,
         truck: 2,
@@ -208,7 +208,8 @@ skip('should return an count object', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should return an weird string of keys', (expect) => {
+//16
+test('should return a weird string of keys', (expect) => {
 
 
     const actual = makeKeysString(vehicles);

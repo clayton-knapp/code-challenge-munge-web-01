@@ -267,15 +267,21 @@ export function getChevyCars(arr) {
 
 // Stretch Goals!
 
+//13
 /*
 Output:
 'taurusmalibubroncosilveradoexpresscamero'
  */
 
 export function makeModelsStringWithReduce(arr) {
-    return '';
+    return arr.reduce((acc, cur) => {
+        acc = acc + cur.model;
+
+        return acc;
+    }, '');
 }
 
+//14
 /*
 (add all ages)
 
@@ -283,9 +289,18 @@ Output: 14
  */
 
 export function getSumOfAges(arr) {
-    return 0;
+    // const sum = arr.reduce((acc, cur) => {
+    //     acc = acc + cur.age;
+    //     return acc;
+    // }, 0);
+
+    // return sum;
+
+    //GOLFIER
+    return arr.reduce((acc, cur) => acc + cur.age, 0);
 }
 
+//15
 /*
 
 Output: 
@@ -297,10 +312,58 @@ Output:
  */
 
 export function makeCountObject(arr) {
-    return {};
+    //DOING WITH FOR LOOP
+    // let carCount = 0;
+    // let truckCount = 0;
+    // let vanCount = 0;
+
+    // for(let eachVehicle of arr) {
+    //     if(eachVehicle.type === 'car') {
+    //         carCount++;
+    //     } else if(eachVehicle.type === 'truck') {
+    //         truckCount++;
+    //     } else if(eachVehicle.type === 'van') {
+    //         vanCount++;
+    //     }
+    // }
+    // return {
+    //     car: carCount,
+    //     truck: truckCount,
+    //     van: vanCount
+    // };
+
+    // WITH REDUCE
+
+    const carCount = arr.reduce((acc, cur) => {
+        if(cur.type === 'car') {
+            acc = acc + 1;
+        }
+        return acc;
+    }, 0);
+
+    const truckCount = arr.reduce((acc, cur) => {
+        if(cur.type === 'truck') {
+            acc = acc + 1;
+        }
+        return acc;
+    }, 0);
+
+    const vanCount = arr.reduce((acc, cur) => {
+        if(cur.type === 'van') {
+            acc = acc + 1;
+        }
+        return acc;
+    }, 0);
+
+    return {
+        car: carCount,
+        truck: truckCount,
+        van: vanCount
+    };
+
 }
 
-
+//16
 /*
 
 Output: 
@@ -310,5 +373,14 @@ Output:
 
 
 export function makeKeysString(arr) {
-    return '';
+    // const arrayOfKeys = Object.keys(arr[0]);
+    // const string = arrayOfKeys.reduce((acc, cur) => acc + cur, '');
+
+    // console.log(string);
+    // return string;
+
+    //GOLFIER
+    return Object.keys(arr[0]).reduce((acc, cur) => acc + cur, '');
+
+
 }
